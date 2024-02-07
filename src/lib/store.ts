@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+import taskSliceReducer  from './features/posts/Posts'
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {},
+    reducer: {
+      tasks: taskSliceReducer,
+    },
   })
 }
 
