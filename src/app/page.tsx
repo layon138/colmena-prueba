@@ -25,7 +25,7 @@ export default function Home() {
         <Link
         href={'/listado'}
         className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        rel="noopener noreferrer"
+   
       >
         <h2 className={`mb-3 text-2xl font-semibold`}>
           Ir a listado de posts{" "}
@@ -34,7 +34,7 @@ export default function Home() {
           </span>
         </h2>
         <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-          Find in-depth information about Next.js features and API.
+         Podras mirar el listado de posts  para crear,editar, y borrar de manera local si recargas la pagina volvera al inicio
         </p>
         
         </Link>
