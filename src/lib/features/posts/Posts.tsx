@@ -19,15 +19,20 @@ const initialState:Posts[]=[]
             return action.payload.map((us:any)=>{
                return {
                 ...us,
-                edit:false,
+                image:undefined,
                }
             })
             
         },
         editTask:(state,action)=>{
-            state.push(
-                action.payload
-            )
+            return state.map((us:any)=>{
+                if(us.id===action.payload.id){
+                    return action.payload
+                }else{
+                    return us
+                }
+               
+             })
         },
         deleteTask:(state,action)=>{
                  console.log(state,action)
@@ -36,5 +41,5 @@ const initialState:Posts[]=[]
     }
 })
 
-export const {addTask,addAllTasks,deleteTask}=  taskSlice.actions
+export const {addTask,addAllTasks,deleteTask,editTask}=  taskSlice.actions
 export default taskSlice.reducer

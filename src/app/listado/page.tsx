@@ -20,8 +20,7 @@ export default function DashboardLayout({
   const [wordToSearch, setWord] = useState("");
   const dispath = useDispatch();
   const filterInput = ($event: any) => {
-    console.log($event.target.value);
-    setWord(wordToSearch);
+    setWord($event.target.value);
     const filter = dataAuxiliar.filter((post: Posts) => {
       if (post.title.includes($event.target.value)) {
         return post;
@@ -69,7 +68,7 @@ export default function DashboardLayout({
     <>
    <div className="flex flex-col justify-center items-center mb-3 mt-3">
         <form>
-          <div>
+          <div className="flex justify-between">
             <input
               onChange={filterInput}
               type="text"
@@ -78,6 +77,13 @@ export default function DashboardLayout({
               placeholder="Palabra a filtrar"
               required
             ></input>
+              <Link
+          type="submit"
+          href={'listado/new'}
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+           Nuevo Post
+        </Link>
           </div>
         </form>
       </div>
@@ -103,7 +109,8 @@ export default function DashboardLayout({
                 <a href="#">
                   <img
                     className="rounded-t-lg"
-                    src="/docs/images/blog/image-1.jpg"
+                    
+                    src={item.image}
                     alt=""
                   />
                 </a>
