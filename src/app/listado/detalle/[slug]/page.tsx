@@ -12,12 +12,10 @@ export interface Routt {
 }
 
 export default function DetailPostLayout(params: Routt) {
-  console.log();
   const id = params.params.slug;
   const router = useRouter();
   const tasks = useSelector((state: any) =>
     state.tasks.filter((task: any) => {
-      console.log(params.params.slug);
       if (task.id === +id) {
         return task;
       }

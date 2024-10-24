@@ -15,7 +15,6 @@ const initialState:Posts[]=[]
             ]
         },
         addAllTasks:(state,action)=>{
-            console.log(state,action)
             return action.payload.map((us:any)=>{
                return {
                 ...us,
@@ -35,7 +34,6 @@ const initialState:Posts[]=[]
              })
         },
         deleteTask:(state,action)=>{
-                 console.log(state,action)
             return state.filter(person => person.id != action.payload.id);
         },
     }
