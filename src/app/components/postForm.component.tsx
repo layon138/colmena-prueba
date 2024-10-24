@@ -7,9 +7,19 @@ import { useDispatch, useSelector } from "react-redux";
 import React from "react";
 type MyformData={
   childParent:any
+  id?:any
 }
 
-export default function FormPost ({childParent}:MyformData){
+export default function FormPost ({childParent,id}:MyformData){
+
+  const post = id || {
+    title: "",
+    body: "",
+    image: "",
+    id: Date.now(),
+  };
+  const [count, setCount] = useState(post);
+
 
   const changeInput = ($event: any) => {
     setCount((post: any) => ({
@@ -30,13 +40,6 @@ export default function FormPost ({childParent}:MyformData){
     }));
   };
 
-  const [count, setCount] = useState({
-    title: "",
-    body: "",
-    image: "",
-    id: Date.now(),
-  });
-
   const addWorkForm = ($event: any) => {
     $event.preventDefault();
     childParent(count)
@@ -46,7 +49,13 @@ export default function FormPost ({childParent}:MyformData){
     <>
       <div className="max-w-sm mx-auto mt-20 bg-white rounded-md shadow-md overflow-hidden">
         <div className="px-6 py-4 bg-gray-900 text-white">
-          <h1 className="text-lg font-bold">Añadir </h1>
+          <h1 className="text-lg font-bold">
+          {id ? (
+                'Editar'
+                ) : (
+                 'Añadir'
+                )}
+             </h1>
         </div>
         <form onSubmit={addWorkForm}>
           <div className="px-6 py-4">
@@ -111,8 +120,12 @@ export default function FormPost ({childParent}:MyformData){
             </div>
 
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-              Agregar
-            </button>
+              {id ? (
+                'Editar'
+                ) : (
+                 'Agregar'
+                )}
+             </button>
           </div>
         </form>
       </div>
