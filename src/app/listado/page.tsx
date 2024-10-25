@@ -11,11 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostForm } from "../interfaces/post.interface";
 import CardPost from "../components/postCard.component";
 
-export default function DashboardLayout({
-  children, // will be a page or nested layout
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout() {
   const [dataAuxiliar, setDataAuxiliar] = useState(
     useSelector((state: any) => state.tasks)
   );
