@@ -5,13 +5,12 @@ import { useState } from "react";
 import { addTask } from "@/lib/features/posts/Posts";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
-type MyformData={
-  childParent:any
-  id?:any
-}
+type MyformData = {
+  childParent: any;
+  id?: any;
+};
 
-export default function FormPost ({childParent,id}:MyformData){
-
+export default function FormPost({ childParent, id }: MyformData) {
   const post = id || {
     title: "",
     body: "",
@@ -19,7 +18,6 @@ export default function FormPost ({childParent,id}:MyformData){
     id: Date.now(),
   };
   const [count, setCount] = useState(post);
-
 
   const changeInput = ($event: any) => {
     setCount((post: any) => ({
@@ -33,7 +31,7 @@ export default function FormPost ({childParent,id}:MyformData){
       return;
     }
     const base64 = await toBase64(e.target.files[0]);
-    console.log(base64);
+
     setCount((post: any) => ({
       ...post,
       image: base64,
@@ -42,20 +40,14 @@ export default function FormPost ({childParent,id}:MyformData){
 
   const addWorkForm = ($event: any) => {
     $event.preventDefault();
-    childParent(count)
+    childParent(count);
   };
 
   return (
     <>
-      <div className="max-w-sm mx-auto mt-20 bg-white rounded-md shadow-md overflow-hidden">
+      <div className="max-w-sm mx-auto mt-5 bg-white rounded-md shadow-md overflow-hidden">
         <div className="px-6 py-4 bg-gray-900 text-white">
-          <h1 className="text-lg font-bold">
-          {id ? (
-                'Editar'
-                ) : (
-                 'Añadir'
-                )}
-             </h1>
+          <h1 className="text-lg font-bold">{id ? "Editar" : "Añadir"}</h1>
         </div>
         <form onSubmit={addWorkForm}>
           <div className="px-6 py-4">
@@ -120,12 +112,8 @@ export default function FormPost ({childParent,id}:MyformData){
             </div>
 
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-              {id ? (
-                'Editar'
-                ) : (
-                 'Agregar'
-                )}
-             </button>
+              {id ? "Editar" : "Agregar"}
+            </button>
           </div>
         </form>
       </div>
