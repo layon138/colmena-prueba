@@ -1,4 +1,7 @@
 PARA PODER EJECUTAR LA APLICACION 
+node v21.5.0
+react 
+
 
 primero el siguiente comando para instalar dependencias
 npm i

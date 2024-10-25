@@ -3,8 +3,8 @@
 import CardPost from "@/app/components/postCard.component";
 import FormPost from "@/app/components/postForm.component";
 import { deleteTask, editTask } from "@/lib/features/posts/Posts";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { redirect, useRouter } from "next/navigation";
+import { useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 export interface Routt {
@@ -42,6 +42,12 @@ export default function DetailPostLayout(params: Routt) {
     dispath(editTask($event));
     router.back();
   };
+
+  useLayoutEffect(() => {
+    if(!post.title){
+      redirect("/listado")
+    }
+  }, [])
 
   return (
     <>

@@ -92,10 +92,10 @@ export default function DashboardLayout({
           next={() => onChangeScroll()}
           hasMore={true}
           loader={
-            <div role="status" className="overflow-hidden">
+            <div role="status" className="overflow-hidden justify-center">
               <svg
                 aria-hidden="true"
-                className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                className="inline w-1/5 h-1/5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

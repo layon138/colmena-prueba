@@ -1,6 +1,6 @@
 export async function getPostsList() {
-
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts`, {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    const response = await fetch(`${baseUrl}posts`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
